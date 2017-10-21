@@ -1,18 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpModule }    from '@angular/http';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpModule} from '@angular/http';
 
 
-import { AppComponent } from './app.component';
-import {BoardgameDetailComponent} from "./boardgame/boardgame-detail.component";
+import {AppComponent} from './app.component';
+import {BoardgameDetailComponent} from "./boardgame/detail/boardgame-detail.component";
 import {AppRoutingModule} from "./app-routing-module";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {RouterModule} from "@angular/router";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap"
+import {BoardgameAllComponent} from "./boardgame/all/boardgame-all.component";
+import {BoardgameService} from "./boardgame/boardgame.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardgameDetailComponent,
+    BoardgameAllComponent,
     DashboardComponent
   ],
   imports: [
@@ -24,9 +28,11 @@ import {RouterModule} from "@angular/router";
         path: 'boardgames',
         component: BoardgameDetailComponent
       }
-    ])
+    ]),
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [BoardgameService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

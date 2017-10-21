@@ -1,12 +1,12 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {BoardgameDetailComponent} from "./boardgame/boardgame-detail.component";
-import {DashboardComponent} from "./dashboard/dashboard.component";
+import {BoardgameDetailComponent} from "./boardgame/detail/boardgame-detail.component";
+import {BoardgameAllComponent} from "./boardgame/all/boardgame-all.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard',  component: DashboardComponent },
-  { path: 'detail/:id', component: BoardgameDetailComponent },
+  { path: 'boardgame/:name',  component: BoardgameAllComponent },
+  { path: 'boardgames', component: BoardgameDetailComponent },
 ];
 
 @NgModule({
